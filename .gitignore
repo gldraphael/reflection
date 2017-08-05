@@ -76,3 +76,4 @@ $RECYCLE.BIN/
 
 bin/
 obj/
+BenchmarkDotNet.Artifacts/

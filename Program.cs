@@ -4,17 +4,36 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Collections.Generic;
 using System.Dynamic;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 
 namespace reflection
 {
-    class Program
+    public class Program
     {
+        static Person model = Person.Mock();
         static void Main(string[] args)
         {
             print("Hello World!");
-            var model = Person.Mock();
+            //var model = Person.Mock();
             print(model);
             print(unwrap(model));
+
+            var summary = BenchmarkRunner.Run<Program>();
+        }
+
+        [Benchmark]
+        public static object test1() => unwrap(model);
+
+        [Benchmark]
+        public static object test2() => staticUnwrap(model);
+
+        static object staticUnwrap(Person p)
+        {
+            return new {
+                p.Name,
+                Favourites = p.Favourites.data
+            };
         }
 
         static object unwrap(object o)
