@@ -16,16 +16,19 @@ namespace reflection
             {
                 runBenchmarks();
             }
-
-            print("Hello World!");
-            print(model);
-            print(Stripper.Strip(model));
+            else
+            {
+                print("Hello World!");
+                print(model);
+                print(Stripper.Strip(model));
+                print(staticUnwrap(model));    
+            }
         }
 
 #region Benchmarks
         public static BenchmarkDotNet.Reports.Summary runBenchmarks()
         {
-            return BenchmarkRunner.Run<Program>();
+            return BenchmarkRunner.Run<Program>();            
         }
 
         [Benchmark]
@@ -49,6 +52,7 @@ namespace reflection
 #endregion
 
 #region Print functions
+
         static void print(object o)
         {
             print(JsonConvert.SerializeObject(o));
