@@ -6,6 +6,9 @@ $ dotnet restore
 
 # Run the program
 dotnet run
+
+# Run the program followed by benchmarks
+dotnet run benchmark
 ```
 
 ## Dev Environemnt
