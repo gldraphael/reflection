@@ -8,7 +8,7 @@ namespace reflection
 
     public class Favourites
     {
-        public string List { get; set; }
+        public string Comments { get; set; }
     }
 
     public static class PersonMocker
@@ -22,7 +22,7 @@ namespace reflection
                 {
                     data = new Favourites 
                     {
-                        List = "Not hungry at all"
+                        Comments = "Not hungry at all"
                     }
                 }
             };
