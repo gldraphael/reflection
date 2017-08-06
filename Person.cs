@@ -4,8 +4,16 @@ namespace reflection
     {
         public string Name {get;set;}
         public Wrapper<Favourites> Favourites { get; set; }
+    }
 
-        public static Person Mock()
+    public class Favourites
+    {
+        public string List { get; set; }
+    }
+
+    public static class PersonMocker
+    {
+        public static Person GetMockPerson()
         {
             return new Person
             {
@@ -19,10 +27,5 @@ namespace reflection
                 }
             };
         }
-    }
-
-    public class Favourites
-    {
-        public string List { get; set; }
     }
 }

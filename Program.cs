@@ -7,8 +7,8 @@ namespace reflection
 {
     public class Program
     {
-        static Person model = Person.Mock();
-        
+        static Person model = PersonMocker.GetMockPerson();
+
         static void Main(string[] args)
         {
             if(args.Length > 0 && args[0] == "benchmark")
