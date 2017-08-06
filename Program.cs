@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Newtonsoft.Json;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
@@ -37,7 +38,12 @@ namespace reflection
         {
             return new {
                 p.Name,
-                Favourites = p.Favourites.data
+                Favourites = p.Favourites?.data,
+                Education = p.Education?.data.Select(e => new {
+                    e.Major,
+                    e.Type,
+                    Grade = e.Grade?.data
+                })
             };
         }
 #endregion
