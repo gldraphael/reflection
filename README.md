@@ -8,7 +8,7 @@ $ dotnet restore
 dotnet run
 
 # Run the program followed by benchmarks
-dotnet run benchmark
+dotnet run benchmark --configuration Release
 ```
 
 ## Dev Environemnt
